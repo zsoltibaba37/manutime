@@ -24,7 +24,7 @@ $ manutime -h
 
 or
 
-$ manutime -help
+$ manutime --help
 
 ```
 
