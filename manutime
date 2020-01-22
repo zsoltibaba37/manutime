@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+# This little script collects laser cutting time for parts,
+# from Trutops generadet PDF files.
+# 
+# Don't forget use 'detox' (Corrects file and folder names), before use this tool.
+#
+#
+usage="Usage: manutime <folder name>"
+#
+case $1 in
+ "") echo ""
+     echo " Missing the folder name."
+     echo " $usage"
+     exit 1
+     ;;
+ "-h") echo ""
+       echo " $usage"
+       exit 0
+       ;;
+ "--help") echo ""
+           echo " $usage"
+           exit 0
+           ;;
+esac
+#
+printf " ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ------- \n"
+echo""
+printf "   Collecting data from '"$1"' folder. - Adatok gyűjtése a "$1" mappából. \n"
+echo""
+printf " ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ------- \n"
+find $1 -type f -name "*pdf" -exec bash -c 'pdfgrep -i "GEO" {} | grep -v "MUNKAD" | grep -v ".taf" | grep -v "NC PROGRAM"' \; -exec pdfgrep "MEGMUNKÁLÁSI ID" {} \; -exec printf "--------------------------------------------------------------------------------\n" \;
