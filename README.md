@@ -27,4 +27,6 @@ or
 $ manutime --help
 
 ```
+### Version
 
+0.1 - Finally I made it, better output format.
