@@ -1,6 +1,9 @@
 manutime
 -----
 
+This little script collect cutting time each metal component, from all PDF files in subfolders.
+From Trumpf - TruTops PDF files.
+
 ### Install
 ```
 sudo cp -p manutime /usr/local/bin/
@@ -15,7 +18,7 @@ $ manutime /home/user/temp
 
 or
 
-$ manutime programs
+$ manutime programs > prog_times.txt
 
 
  Short help
